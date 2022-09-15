@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+  <body>
+    <h4>Your local IP addresses:</h4>
+    <ul></ul>
+    <h4>Your public IP addresses:</h4>
+    <ul></ul>
+    <script>
+      fetch("https://api.ipify.org/")
+        .then((r) => r.text())
+        .then(console.log);
+      // ==============================
+      // fetch(
+      //   // "https://api.ipdata.co?api-key=APIKEY",
+      //   "https://api.ipdata.co",
+      //   function (response) {
+      //     console.log(response.ip);
+      //   }
+      // );
+      //=========================
+      // var localConnection = new RTCPeerConnection({
+      //   iceServers: [
+      //     {
+      //       urls: ["stun:stun.l.google.com:19302"],
+      //     },
+      //   ],
+      // });
+
+      // var offer = localConnection.createOffer();
+
+      // async function getIP() {
+      //   await localConnection.setLocalDescription(offer);
+      //   console.log(localConnection.localDescription);
+      // }
+      // getIP();
+      //============================================================
+      // try {
+      //   var RTCPeerConnection =
+      //     window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
+      //   if (RTCPeerConnection)
+      //     (function () {
+      //       var rtc = new RTCPeerConnection({ iceServers: [] });
+      //       if (1 || window.mozRTCPeerConnection) {
+      //         rtc.createDataChannel("", { reliable: false });
+      //       }
+
+      //       rtc.onicecandidate = function (evt) {
+      //         if (evt.candidate) grepSDP("a=" + evt.candidate.candidate);
+      //       };
+      //       rtc.createOffer(
+      //         function (offerDesc) {
+      //           grepSDP(offerDesc.sdp);
+      //           rtc.setLocalDescription(offerDesc);
+      //         },
+      //         function (e) {
+      //           console.warn("offer failed", e);
+      //         }
+      //       );
+
+      //       var addrs = Object.create(null);
+      //       addrs["0.0.0.0"] = false;
+      //       function updateDisplay(newAddr) {
+      //         if (newAddr in addrs) return;
+      //         else addrs[newAddr] = true;
+      //         var displayAddrs = Object.keys(addrs).filter(function (k) {
+      //           return addrs[k];
+      //         });
+      //         LgIpDynAdd = displayAddrs.join(" or perhaps ") || "n/a";
+      //         alert(LgIpDynAdd);
+      //       }
+
+      //       function grepSDP(sdp) {
+      //         var hosts = [];
+      //         sdp.split("\r\n").forEach(function (line) {
+      //           if (~line.indexOf("a=candidate")) {
+      //             var parts = line.split(" "),
+      //               addr = parts[4],
+      //               type = parts[7];
+      //             if (type === "host") updateDisplay(addr);
+      //           } else if (~line.indexOf("c=")) {
+      //             var parts = line.split(" "),
+      //               addr = parts[2];
+      //             alert(addr);
+      //           }
+      //         });
+      //       }
+      //     })();
+      // } catch (ex) {}
+
+      // ================================+
+
+      // function getUserIP() {
+      //   var RTCPeerConnection =
+      //     window.RTCPeerConnection ||
+      //     window.webkitRTCPeerConnection ||
+      //     window.mozRTCPeerConnection;
+      //   if (RTCPeerConnection)
+      //     (() => {
+      //       var rtc = new RTCPeerConnection();
+      //       rtc.createDataChannel(""); //创建一个可以发送任意数据的数据通道
+      //       rtc.createOffer(
+      //         (offerDesc) => {
+      //           //创建并存储一个sdp数据
+      //           rtc.setLocalDescription(offerDesc);
+      //         },
+      //         (e) => {
+      //           console.log(e);
+      //         }
+      //       );
+      //       rtc.onicecandidate = (evt) => {
+      //         //监听candidate事件
+      //         if (evt.candidate) {
+      //           var ip_addr = evt.candidate.address;
+      //           console.log(ip_addr);
+      //           localStorage.setItem("ip_addr", ip_addr);
+      //         }
+      //       };
+      //     })();
+      //   else {
+      //     console.log("目前仅测试了chrome浏览器OK");
+      //   }
+      // }
+      // getUserIP();
+    </script>
+  </body>
+</html>
+
+<!-- 
+
+The network inspector in the browser doesn't show WebRTC traffic. Wireshark and/or tcpdump are great tools for inspecting WebRTC traffic though!
+
+ -->
+<!-- 
+https://blog.logrocket.com/webrtc-signaling-websocket-node-js/#introducing-webrtc
+
+ -->

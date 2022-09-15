@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <script src="../../node_modules/socket.io/dist/index.js"></script> -->
+  </head>
+  <body>
+    hello world
+    <script type="module">
+      // console.log("🚀🚀🚀 / socket", socket);
+      // 创建一个socket实例：
+      const socket = new WebSocket("ws://localhost:3000");
+      // 打开socket
+      socket.onopen = (event) => {
+        // 发送一个初始化消息
+        socket.send("Hello Server!");
+        // 服务器有响应数据触发
+        socket.onmessage = (event) => {
+          console.log("Client received a message", event);
+        };
+        // 出错时触发，并且会关闭连接。这时可以根据错误信息进行按需处理
+        socket.onerror = (event) => {
+          console.log("error");
+        };
+        // 监听Socket的关闭
+        socket.onclose = (event) => {
+          console.log("Client notified socket has closed", event);
+        };
+        // 关闭Socket
+        socket.close(1000, "closing normally");
+      };
+    </script>
+  </body>
+</html>
