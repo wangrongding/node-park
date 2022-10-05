@@ -22,6 +22,13 @@ app.use(express.static(path.join(__dirname, "./")));
 // 解决了所有请求头和方式设置的繁琐问题,要携带cookie时，这种方式不适合
 app.use(cors());
 
+// 写接口
+app.get('/api/test', (req, res) => {
+  res.type('application/json');
+  res.end(JSON.stringify({ status: 0, message: '测试成功~' }, 'utf8'));
+});
+
+
 const httpsServer = https.createServer(options, app);
 
 httpsServer.listen(3000, "0.0.0.0", () => {
@@ -29,23 +36,15 @@ httpsServer.listen(3000, "0.0.0.0", () => {
 });
 
 // 创建信令服务器
-// const io = new Server(httpsServer, {
-//   cors: {
-//     origin: "*", // 允许跨域
-//     methods: ["GET", "POST"], // 允许的请求方法
-//   },
-// });
-
 const io = new Server(httpsServer, {
   cors: {
-    origin: "*", // 允许跨域
-    methods: ["GET", "POST"], // 允许的请求方法
-    transports: ['websocket'],
-    credentials: true
-    // cors 인증서 사용 : origin 다른 resource 일때 
-    // cors문제로 인해 쿠키가 없으므로 쿠키를 헤더에 넣어주는것
+    origin: "*",
+    methods: ["GET", "POST"],
+    allowedHeaders: "*",
+    credentials: true,
   },
   allowEIO3: true,
+  transport: ['websocket']
 });
 
 // 房间信息
