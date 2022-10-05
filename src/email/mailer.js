@@ -10,19 +10,19 @@ const transport = {
   // 使用了 SSL
   secureConnection: true,
   auth: {
-    user: "fedtop@163.com",
+    user: "xxx@163.com",
     // 不是邮箱密码，是你设置的smtp授权码
-    pass: "AZIOCYXHWEIELSQI",
+    pass: "xxx",
   },
 };
 
 // 定义邮件内容
 const data = {
   // 发送者 邮件地址
-  from: '"Noah.Wong" <fedtop@163.com>',
+  from: '"Noah.Wong" <xxx@163.com>',
   // 逗号隔开的接收人列表
-  to: "'dear sh' <2018365419@qq.com>,'每日邮件' <wangrongding@qq.com>",
-  // to: "'测试邮件' <wangrongding@qq.com>",
+  to: "'dear sh' <xxxxx@qq.com>,'每日邮件' <bbbbb@qq.com>",
+  // to: "'测试邮件' <bbbbb@qq.com>",
   // 邮件标题
   subject: `想和你一起看世界:第${parseInt(
     (new Date() - new Date("2020-08-19")) / 1000 / 60 / 60 / 24

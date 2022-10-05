@@ -109,16 +109,16 @@ async function send() {
     port: 465, // SMTP 端口
     secureConnection: true, // 使用了 SSL
     auth: {
-      user: "fedtop@163.com",
+      user: "xxx@163.com",
       // 不是邮箱密码，是你设置的smtp授权码
       pass: "xxx",
     },
   });
 
   let mailOptions = {
-    from: '"Noah.Wong" <fedtop@163.com>', // 发送者 邮件地址
-    // to: "'测试邮件' <wangrongding@qq.com>", // 逗号隔开的接收人列表
-    to: "'宝贝sh' <2018365419@qq.com>,'每日邮件' <wangrongding@qq.com>", // 逗号隔开的接收人列表
+    from: '"Noah.Wong" <xxx@163.com>', // 发送者 邮件地址
+    // to: "'测试邮件' <bbbbb@qq.com>", // 逗号隔开的接收人列表
+    to: "'宝贝sh' <xxxxx@qq.com>,'每日邮件' <bbbbb@qq.com>", // 逗号隔开的接收人列表
     subject: `想和你一起看世界:第${parseInt(
       (new Date() - new Date("2020-08-19")) / 1000 / 60 / 60 / 24
     )}期`, // 邮件标题
