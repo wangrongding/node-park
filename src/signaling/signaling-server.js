@@ -4,6 +4,8 @@ import https from "https";
 import path from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
+import cors from "cors";
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,6 +18,10 @@ const options = {
 
 const app = express();
 app.use(express.static(path.join(__dirname, "./")));
+
+// 解决了所有请求头和方式设置的繁琐问题,要携带cookie时，这种方式不适合
+app.use(cors());
+
 const httpsServer = https.createServer(options, app);
 
 httpsServer.listen(3000, "0.0.0.0", () => {
@@ -23,11 +29,23 @@ httpsServer.listen(3000, "0.0.0.0", () => {
 });
 
 // 创建信令服务器
+// const io = new Server(httpsServer, {
+//   cors: {
+//     origin: "*", // 允许跨域
+//     methods: ["GET", "POST"], // 允许的请求方法
+//   },
+// });
+
 const io = new Server(httpsServer, {
   cors: {
     origin: "*", // 允许跨域
     methods: ["GET", "POST"], // 允许的请求方法
+    transports: ['websocket'],
+    credentials: true
+    // cors 인증서 사용 : origin 다른 resource 일때 
+    // cors문제로 인해 쿠키가 없으므로 쿠키를 헤더에 넣어주는것
   },
+  allowEIO3: true,
 });
 
 // 房间信息

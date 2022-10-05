@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   axios: ^0.27.2
   cookie-parser: ^1.4.6
+  cors: ^2.8.5
   express: ^4.18.1
   http-errors: ^2.0.0
   morgan: ^1.10.0
@@ -15,6 +16,7 @@ specifiers:
 dependencies:
   axios: registry.npmmirror.com/axios/0.27.2
   cookie-parser: registry.npmmirror.com/cookie-parser/1.4.6
+  cors: registry.npmmirror.com/cors/2.8.5
   express: registry.npmmirror.com/express/4.18.1
   http-errors: registry.npmmirror.com/http-errors/2.0.0
   morgan: registry.npmmirror.com/morgan/1.10.0
