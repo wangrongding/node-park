@@ -31,7 +31,7 @@ app.get('/api/test', (req, res) => {
 
 const httpsServer = https.createServer(options, app);
 
-httpsServer.listen(3000, "0.0.0.0", () => {
+httpsServer.listen(3333, "0.0.0.0", () => {
   console.log("Https server up and running...");
 });
 

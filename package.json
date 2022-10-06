@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon"
+    "dev": "node src/signaling/signaling-server.js",
+    "build": "node src/signaling/signaling-server.js"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +25,7 @@
     "ws": "^8.8.1"
   },
   "devDependencies": {
+    "@vercel/node": "^2.5.21",
     "nodemon": "^2.0.19"
   }
 }
