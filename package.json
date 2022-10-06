@@ -6,8 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node src/signaling/signaling-server.js",
-    "build": "node src/signaling/signaling-server.js"
+    "dev": "node src/signaling/signaling-server.js"
   },
   "keywords": [],
   "author": "",

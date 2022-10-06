@@ -1,42 +1,28 @@
+import http from "http";
 import { Server } from "socket.io";
 import express from "express";
-import https from "https";
-import path from "path";
-import { fileURLToPath } from "url";
-import fs from "fs";
 import cors from "cors";
 
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-//https证书
-const options = {
-  key: fs.readFileSync(path.join(__dirname, "../assets/localhost+3-key.pem")),
-  cert: fs.readFileSync(path.join(__dirname, "../assets/localhost+3.pem")),
-};
-
+const host = "0.0.0.0";
+const port = 3000;
 const app = express();
-app.use(express.static(path.join(__dirname, "./")));
 
 // 解决了所有请求头和方式设置的繁琐问题,要携带cookie时，这种方式不适合
 app.use(cors());
 
 // 随便写一个接口测试一下
-app.get('/api/test', (req, res) => {
+app.get('/', (req, res) => {
   res.type('application/json');
-  res.end(JSON.stringify({ status: 0, message: '测试成功~' }, 'utf8'));
+  res.end(JSON.stringify({ status: 0, message: '测试成功~🌸' }, 'utf8'));
 });
 
-
-const httpsServer = https.createServer(options, app);
-
-httpsServer.listen(3333, "0.0.0.0", () => {
-  console.log("Https server up and running...");
+const httpServer = http.createServer(app);
+httpServer.listen(port, host, () => {
+  console.log("Http server up and running...");
 });
 
 // 创建信令服务器
-const io = new Server(httpsServer, {
+const io = new Server(httpServer, {
   cors: {
     origin: "*",
     methods: ["GET", "POST"],
@@ -47,11 +33,13 @@ const io = new Server(httpsServer, {
   transport: ['websocket']
 });
 
+
 // 房间信息
 const ROOM_LIST = [];
 // 每个房间最多容纳的人数
 const MAX_USER_COUNT = 4;
 
+// 用户连接
 io.on("connection", (socket) => {
   console.log("connection~");
   // 用户加入房间
@@ -87,6 +75,7 @@ io.on("connection", (socket) => {
   });
 });
 
+// 用户加入房间
 function handleUserJoin(socket, data) {
   console.log("🚀🚀🚀 / handleUserJoin", handleUserJoin);
   const filterRoom = ROOM_LIST.filter((item) => item.roomId === data.roomId)[0];
@@ -159,5 +148,3 @@ function handleUserDisconnect(socket) {
     }
   }
 }
-
-// io.listen(3001);

@@ -1,29 +1,10 @@
 {
   "version": 2,
-  "name": "node-park",
   "builds": [
     {
-      "src": "src/signaling/signaling-server.js",
+      "src": "./src/signaling/signaling-http-server.js",
       "use": "@vercel/node"
     }
   ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        },
-        {
-          "key": "Access-Control-Allow-Headers",
-          "value": "content-type"
-        },
-        {
-          "key": "Access-Control-Allow-Methods",
-          "value": "DELETE,PUT,POST,GET,OPTIONS"
-        }
-      ]
-    }
-  ]
+  "routes": [{ "src": "/(.*)", "dest": "/src/signaling/signaling-http-server.js" }]
 }
