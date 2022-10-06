@@ -83,6 +83,33 @@ function handleLeave(roomId, userId) {
 
 HTTP、Websocket 和数据通道
 
+## pm2 开机自启动
+
+pm2 是一个带有负载均衡功能的 Node 应用的进程管理器，可以让你的 Node 应用始终保持在线，同时提供了一些其他的功能，比如日志记录、进程监控、进程守护等。
+
+### 安装
+
+```bash
+npm install pm2 -g
+```
+
+### 启动
+
+```bash
+pm2 start app.js
+```
+
+### 开机自启动
+
+```bash
+# 生成开机启动脚本
+pm2 startup
+# 保存当前进程列表
+pm2 save
+```
+
+# 执行命令
+
 ## webRTC 的安全隐患
 
 https://www.expressvpn.com/webrtc-leak-test
