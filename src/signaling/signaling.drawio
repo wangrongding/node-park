@@ -1,0 +1,43 @@
+<mxfile host="65bd71144e">
+    <diagram id="5XPVje8yrZ5FcnuZ77Dq" name="第 1 页">
+        <mxGraphModel dx="975" dy="574" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#1A1A1A" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="4" value="&lt;font color=&quot;#ffff00&quot;&gt;媒人（中间人）&lt;/font&gt;" style="image;html=1;image=img/lib/clip_art/people/Worker_Woman_Black_128x128.png;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="378" y="90" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;font color=&quot;#33ff33&quot;&gt;你&lt;/font&gt;" style="image;html=1;image=img/lib/clip_art/people/Tech_Man_128x128.png;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="90" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;font color=&quot;#ff66b3&quot;&gt;陌生人&lt;/font&gt;" style="image;html=1;image=img/lib/clip_art/people/Scientist_Woman_128x128.png;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="700" y="90" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;rounded=0;" parent="1" source="5" target="4" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="260" y="170" as="sourcePoint"/>
+                        <mxPoint x="310" y="120" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="16" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;rounded=0;" parent="1" source="4" target="7" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="490" y="180" as="sourcePoint"/>
+                        <mxPoint x="540" y="130" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="17" value="我的信息 --&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=#2D7600;fillColor=#60a917;rounded=0;fontColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="145" y="100" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="&amp;lt;---我的信息" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=#A50040;fillColor=#d80073;rounded=0;fontColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="595" y="140" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="&amp;lt;--- 她的信息" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=#A50040;fillColor=#d80073;rounded=0;fontColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="266" y="140" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="他的信息 xxx --&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=#2D7600;fillColor=#60a917;rounded=0;fontColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="483" y="100" width="100" height="20" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
