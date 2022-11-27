@@ -109,30 +109,31 @@ function handleUserJoin(socket, data) {
   // 当房间里的人数为0且管理员还没有设置，设置管理员
   if (room.userList.length === 0) {
     room.admin = data.userId
-    // // 通知自己创建 offer
-    // socket.emit("createOffer", data);
+    // 通知自己创建 offer
+    // socket.emit('createOffer', data)
   }
 
   // 判断用户是否已经在房间里
-  const filterUser = room.userList.filter((item) => item.userId === data.userId)[0]
+  const filterUser = room.userList.some((item) => item.userId === data.userId)
   if (filterUser) {
     socket.emit('error', '用户已在房间里')
-  } else {
-    room.userList.push(data)
-    console.log(data.userId, '加入房间')
-    // 通知房间内的其他用户
+    return
   }
+
+  // 将用户信息保存到 socket 对象中
   socket.userId = data.userId
   socket.roomId = data.roomId
 
+  // 将用户保存到 room 中
+  room.userList.push(data)
+  console.log(data.userId, '加入房间')
   // 将用户加入房间
   socket.join(data.roomId)
-  // 通知自己加入房间成功
-  socket.emit('joined', data)
-  // 通知房间内的其他用户
-  socket.to(data.roomId).emit('welcome', data)
+  // 通知房间内的所有人
+  io.to(data.roomId).emit('welcome', data)
   // 通知房间内的其他用户创建 offer
   socket.to(data.roomId).emit('createOffer', data)
+
   console.log(
     '🚀🚀🚀userList',
     room.userList.map((item) => item.userId),
@@ -161,3 +162,5 @@ function handleUserDisconnect(socket) {
     }
   }
 }
+
+//socket.io中文文档：  https://socket.io/zh-CN/docs/v4/server-api/
