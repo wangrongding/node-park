@@ -6,20 +6,24 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node src/signaling/signaling-server.js"
+    "dev": "node src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
+    "chalk": "^5.1.2",
+    "chatgpt": "^2.0.4",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.18.1",
     "http-errors": "^2.0.0",
     "morgan": "^1.10.0",
     "nodemailer": "^6.7.8",
     "npm-name": "^7.0.1",
+    "p-timeout": "^6.0.0",
     "socket.io": "^4.5.1",
     "ws": "^8.8.1"
   },
