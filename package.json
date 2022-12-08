@@ -5,8 +5,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node src/index.js"
+    "test": "node ./test.js",
+    "dev": "node src/index.js",
+    "deploy": "vercel --prod"
   },
   "keywords": [],
   "author": "",

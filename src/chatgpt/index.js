@@ -1,12 +1,13 @@
 import { ChatGPTAPI } from "chatgpt";
 import pTimeout from "p-timeout";
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 
 // 定义ChatGPT的配置
 const config = {
   markdown: true, // 返回的内容是否需要markdown格式
   AutoReply: true, // 是否自动回复
-  sessionToken: dotenv.config().parsed.CHATGPT_SESSION_TOKEN, // ChatGPT的sessionToken
+  // sessionToken: dotenv.config().parsed.CHATGPT_SESSION_TOKEN, // ChatGPT的sessionToken
+  sessionToken: process.env.CHATGPT_SESSION_TOKEN, // ChatGPT的sessionToken
 };
 
 // 获取 chatGPT 的回复
